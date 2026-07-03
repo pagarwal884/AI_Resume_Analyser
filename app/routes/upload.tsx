@@ -6,7 +6,20 @@ const upload = () => {
 
     const [isProcessing, setIsProcessing] = useState(false)
     const [statusText, setStatusText] = useState('')
-    const handleSubmit = (e: FormEvent<HTMLFormElement>) => {}
+    const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+        e.preventDefault()
+        const form = e.currentTarget.closest('form')
+        if (!form) return
+        const formData = new FormData(form)
+        const companyName = formData.get("company-name");
+        const jobTitle = formData.get("job-title");
+        const jobDescription = formData.get("job-description");
+
+
+        console.log({
+            companyName, jobDescription, jobTitle, file
+        })
+    }
 
     const [file, setFile] = useState<File | null>(null)
 
@@ -23,9 +36,9 @@ const upload = () => {
                     <h1>Smart Feedback for your dream job</h1>
                     {isProcessing ? (
                         <>
-                        <h2>{statusText}</h2>
-                        <img src="/public/images/resume-scan.gif" alt="" className="w-full" />
-                    </>) : (
+                            <h2>{statusText}</h2>
+                            <img src="/public/images/resume-scan.gif" alt="" className="w-full" />
+                        </>) : (
                         <h2>Drop Your Resume for ATS Score and tips
                         </h2>
                     )}
@@ -36,25 +49,25 @@ const upload = () => {
                                 <label htmlFor="company-name">
                                     Company Name
                                 </label>
-                                <input type="text" name='company-name' placeholder='Company Name' id="company-name"/>
+                                <input type="text" name='company-name' placeholder='Company Name' id="company-name" />
                             </div>
                             <div className="form-div">
                                 <label htmlFor="job-title">
                                     Job Title
                                 </label>
-                                <input type="text" name='job-title' placeholder='Job Title' id="job-title"/>
+                                <input type="text" name='job-title' placeholder='Job Title' id="job-title" />
                             </div>
                             <div className="form-div">
                                 <label htmlFor="job-description">
                                     Job Description
                                 </label>
-                                <textarea rows={5} name='job-description' placeholder='Company Name' id="job-description"/>
+                                <textarea rows={5} name='job-description' placeholder='Job Description' id="job-description" />
                             </div>
                             <div className="form-div">
                                 <label htmlFor="uploder">
                                     Upload Resume
                                 </label>
-                                <FileUploader onFileSelect={handleFileSelect}/>
+                                <FileUploader onFileSelect={handleFileSelect} />
                             </div>
 
 
