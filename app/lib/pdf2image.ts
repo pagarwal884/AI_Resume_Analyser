@@ -76,10 +76,10 @@ export async function convertPdfToImage(
       ); // Set quality to maximum (1.0)
     });
   } catch (err) {
-    return {
-      imageUrl: "",
-      file: null,
-      error: `Failed to convert PDF: ${err}`,
-    };
-  }
+  return {
+    imageUrl: "",
+    file: null,
+    error: `Failed to convert PDF: ${err}`,
+  };
+}
 }
