@@ -91,6 +91,96 @@ export const resumes: Resume[] = [
       },
     },
   },
+  {
+    id: "4",
+    companyName: "Amazon",
+    jobTitle: "Backend Developer",
+    imagePath: "/images/resume_01.png",
+    resumePath: "/resumes/resume-1.pdf",
+    feedback: {
+      overallScore: 92,
+      ATS: {
+        score: 94,
+        tips: [],
+      },
+      toneAndStyle: {
+        score: 90,
+        tips: [],
+      },
+      content: {
+        score: 93,
+        tips: [],
+      },
+      structure: {
+        score: 91,
+        tips: [],
+      },
+      skills: {
+        score: 95,
+        tips: [],
+      },
+    },
+  },
+  {
+    id: "5",
+    companyName: "Meta",
+    jobTitle: "Full Stack Developer",
+    imagePath: "/images/resume_02.png",
+    resumePath: "/resumes/resume-2.pdf",
+    feedback: {
+      overallScore: 80,
+      ATS: {
+        score: 82,
+        tips: [],
+      },
+      toneAndStyle: {
+        score: 79,
+        tips: [],
+      },
+      content: {
+        score: 81,
+        tips: [],
+      },
+      structure: {
+        score: 78,
+        tips: [],
+      },
+      skills: {
+        score: 84,
+        tips: [],
+      },
+    },
+  },
+  {
+    id: "6",
+    companyName: "Netflix",
+    jobTitle: "Software Engineer",
+    imagePath: "/images/resume_03.png",
+    resumePath: "/resumes/resume-3.pdf",
+    feedback: {
+      overallScore: 68,
+      ATS: {
+        score: 70,
+        tips: [],
+      },
+      toneAndStyle: {
+        score: 66,
+        tips: [],
+      },
+      content: {
+        score: 69,
+        tips: [],
+      },
+      structure: {
+        score: 67,
+        tips: [],
+      },
+      skills: {
+        score: 71,
+        tips: [],
+      },
+    },
+  },
 ];
 
 export const AIResponseFormat = `
