@@ -1,5 +1,6 @@
 import React, { useState, type FormEvent } from 'react'
 import Navbar from '~/components/Navbar'
+import FileUploader from '../components/FileUploader'
 
 const upload = () => {
 
@@ -7,6 +8,11 @@ const upload = () => {
     const [statusText, setStatusText] = useState('')
     const handleSubmit = (e: FormEvent<HTMLFormElement>) => {}
 
+    const [file, setFile] = useState<File | null>(null)
+
+    const handleFileSelect = (file: File | null) => {
+        setFile(file)
+    }
     return (
         <main className="bg-[url('/images/bg-main.svg')] bg-cover">
             <Navbar />
@@ -48,7 +54,7 @@ const upload = () => {
                                 <label htmlFor="uploder">
                                     Upload Resume
                                 </label>
-                                <div>Uploader</div>
+                                <FileUploader onFileSelect={handleFileSelect}/>
                             </div>
 
 
