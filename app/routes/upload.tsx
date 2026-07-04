@@ -1,4 +1,4 @@
-import { type FormEvent, useState } from 'react'
+import { type FormEvent, useEffect, useState } from 'react'
 import Navbar from "~/components/Navbar";
 import FileUploader from "~/components/FileUploader";
 import { usePuterStore } from "~/lib/puter";
@@ -75,8 +75,9 @@ const Upload = () => {
         await kv.set(`resume:${uuid}`, JSON.stringify(data));
         setStatusText('Analysis complete, redirecting...');
         console.log(data);
-        // navigate(`/resume/${uuid}`);
-    } catch (error) {
+        navigate(`/resume/${uuid}`);
+    } 
+    catch (error) {
         console.error('handleAnalyze failed:', error);
         setStatusText(
             error instanceof Error ? `Error: ${error.message}` : 'Error: Something went wrong during analysis'
@@ -111,7 +112,7 @@ const Upload = () => {
                     {isProcessing ? (
                         <>
                             <h2>{statusText}</h2>
-                            <img src="/public/images/resume-scan.gif" alt="" className="w-full" />
+                            <img src="/images/resume-scan.gif" alt="" className="w-full" />
                         </>
                     ) : (
                         <h2>Drop your resume for an ATS score and improvement tips</h2>
