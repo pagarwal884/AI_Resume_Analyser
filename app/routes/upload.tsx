@@ -14,6 +14,10 @@ const Upload = () => {
     const [statusText, setStatusText] = useState('');
     const [file, setFile] = useState<File | null>(null);
 
+    useEffect(() => {
+        if(!isLoading && !auth.isAuthenticated) navigate('/auth?next=/upload');
+    }, [isLoading])
+
     const handleFileSelect = (file: File | null) => {
         setFile(file)
     }
@@ -74,7 +78,6 @@ const Upload = () => {
         data.feedback = JSON.parse(feedbackText);
         await kv.set(`resume:${uuid}`, JSON.stringify(data));
         setStatusText('Analysis complete, redirecting...');
-        console.log(data);
         navigate(`/resume/${uuid}`);
     } 
     catch (error) {

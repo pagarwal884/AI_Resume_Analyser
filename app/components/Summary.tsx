@@ -1,5 +1,5 @@
 import type { Feedback } from "~/types";
-import ScoreGauge from "./scoreGauge";
+import ScoreGauge from "./ScoreGauge";
 
 const ScoreBadge = ({ score }: { score: number }) => {
   const badgeColor =
